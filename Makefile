@@ -58,6 +58,12 @@ Core/Src/system_stm32f1xx.c \
 Core/Src/sysmem.c \
 Core/Src/syscalls.c
 
+SERVO_TEST_DIR := SERVO_TEST
+
+include $(SERVO_TEST_DIR)/servo_test.mk
+
+C_SOURCES += $(SERVO_SOURCES)
+
 # ASM sources
 ASM_SOURCES =  \
 startup_stm32f103xb.s
@@ -122,6 +128,10 @@ C_INCLUDES =  \
 -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
 -IDrivers/CMSIS/Include
+
+C_INCLUDES += -I$(SERVO_TEST_DIR)/components/bsp \
+		   	  -I$(SERVO_TEST_DIR)/components/angle_control \
+			  -I$(SERVO_TEST_DIR)/app
 
 
 # compile gcc flags
@@ -190,7 +200,11 @@ $(BUILD_DIR):
 # clean up
 #######################################
 clean:
-	-rm -fR $(BUILD_DIR)
+	-powershell -NoProfile -Command "if (Test-Path '$(BUILD_DIR)') { Remove-Item -Recurse -Force '$(BUILD_DIR)' }"
+
+flash:
+	@echo Flashing $(TARGET)...
+	STM32_Programmer_CLI -c port=SWD -w $(BUILD_DIR)/$(TARGET).hex -v --start
   
 #######################################
 # dependencies

@@ -4,7 +4,4 @@ COMPONENT_FILES = ${SERVO_TEST_DIR}/components/angle_control/angle_control.c \
 				  ${SERVO_TEST_DIR}/components/bsp/bsp.c \
 
 SERVO_SOURCES  = 	$(APP_FILES) \
-				   	$(BOARD_FILES) \
-				   	$(SERVICES_FILES) \
-				   	$(UTILS_FILES) \
 				   	$(COMPONENT_FILES)
