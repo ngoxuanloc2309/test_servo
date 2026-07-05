@@ -5,7 +5,9 @@
 extern "C" {
 #endif
 
+void servo_set_angle(int angle);
 
+void servo_set_angle_init(int angle);
 
 #ifdef __cplusplus
 }

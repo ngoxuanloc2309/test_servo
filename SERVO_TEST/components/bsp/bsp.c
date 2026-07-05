@@ -1,0 +1,6 @@
+#include "bsp.h"
+#include "app_config.h"
+
+void bsp_init(void){
+    HAL_TIM_PWM_Start(SERVO_TIM_HANDLE, SERVO_TIM_CHANNEL);
+}

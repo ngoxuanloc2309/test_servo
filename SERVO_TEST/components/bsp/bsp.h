@@ -8,7 +8,7 @@ extern "C" {
 #include "board.h"
 #include "tim.h"
 
-
+void bsp_init(void);
 
 
 #ifdef __cplusplus
