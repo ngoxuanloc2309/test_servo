@@ -6,5 +6,5 @@ void servo_set_angle(int angle){
 }
 
 void servo_set_angle_init(void){
-    servo_set_angle_init(SERVO_ANGLE_INIT);
+    servo_set_angle(SERVO_ANGLE_INIT);
 }
