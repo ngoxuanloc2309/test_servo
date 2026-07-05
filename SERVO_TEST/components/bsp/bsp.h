@@ -5,7 +5,6 @@
 extern "C" {
 #endif
 
-#include "board.h"
 #include "tim.h"
 #include "stm32f1xx_hal.h"
 
